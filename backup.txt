@@ -1,0 +1,387 @@
+{{-- @extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Register') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+ --}}
+
+@extends('frontend.layouts.app')
+
+@section('styles')
+<style type="text/css">
+body {
+    color: #efedef;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.6em;
+}
+h1 {
+    font-size: 40px;
+    line-height: 0.8em;
+    color: rgba(255,255,255,0.2);
+}
+a {
+    background: #fd264f;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0;
+    padding: 5px 110px;
+    position: fixed;
+    top: 20px;
+    right: -100px;
+    text-align: center;
+    text-decoration: none;
+    transform: rotate(45deg);
+}
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none; }
+
+.tabs {
+  display: block;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0;
+  overflow: hidden; }
+  .tabs [class^="tab"] label,
+  .tabs [class*=" tab"] label {
+    color: #efedef;
+    cursor: pointer;
+    display: block;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1em;
+    padding: 2rem 0;
+    text-align: center; }
+  .tabs [class^="tab"] [type="radio"],
+  .tabs [class*=" tab"] [type="radio"] {
+    border-bottom: 1px solid rgba(239, 237, 239, 0.5);
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+    .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
+    .tabs [class*=" tab"] [type="radio"]:hover,
+    .tabs [class*=" tab"] [type="radio"]:focus {
+      border-bottom: 1px solid #fd264f; }
+    .tabs [class^="tab"] [type="radio"]:checked,
+    .tabs [class*=" tab"] [type="radio"]:checked {
+      border-bottom: 2px solid #fd264f; }
+    .tabs [class^="tab"] [type="radio"]:checked + div,
+    .tabs [class*=" tab"] [type="radio"]:checked + div {
+      opacity: 1; }
+    .tabs [class^="tab"] [type="radio"] + div,
+    .tabs [class*=" tab"] [type="radio"] + div {
+      display: block;
+      opacity: 0;
+      padding: 2rem 0;
+      width: 90%;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
+  .tabs .tab-2 {
+    width: 50%; }
+    .tabs .tab-2 [type="radio"] + div {
+      width: 200%;
+      margin-left: 200%; }
+    .tabs .tab-2 [type="radio"]:checked + div {
+      margin-left: 0; }
+    .tabs .tab-2:last-child [type="radio"] + div {
+      margin-left: 100%; }
+    .tabs .tab-2:last-child [type="radio"]:checked + div {
+      margin-left: -100%; }
+    label.form-label {
+        padding: 5px !important;
+        font-size: 15px !important;
+        text-align: left !important;
+    }
+</style>
+@endsection
+
+@section('content')
+{{-- 
+<div class="hero" style="background-image: url('{{ asset('frontend_assets/img/bg-1.jpg') }}')">
+    <div class="container">
+        <div class="row hero__content pt-5 pb-5">
+            <div class="col-md-2 col-sm-12 col-12"></div>
+            <div class="col-md-8 col-sm-12 col-12">
+                <div class="login-wrap">
+                    <div class="login-html">
+                        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab tab-top">Physician</label>
+                        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab tab-top">Pharmacist</label>
+                        <div class="login-form">
+                            <div class="sign-in-htm">
+                                <form method="POST" action="{{ route('register') }}">
+                                <div class="row">
+                                    <div class="group col-sm-12">
+                                        <label for="user" class="label">Physician Name</label>
+                                        <input type="text" name="name" class="input form-control">
+                                        
+                                    </div>
+                                    <div class="group col-sm-12">
+                                        <label for="user" class="label">Clinic Address</label>
+                                        <input type="text" name="address" class="input form-control">
+                                    </div>
+                                    <div class="group col-sm-6">
+                                        <label for="user" class="label">Email</label>
+                                        <input type="email" name="email" class="input form-control">
+                                    </div>
+                                    <div class="group col-sm-6">
+                                        <label for="user" class="label">Telephone #</label>
+                                        <input type="number" name="phone" class="input form-control">
+                                    </div>
+                                    <div class="group col-sm-4">
+                                        <label for="pass" class="label">Specialty</label>
+                                        <input type="text" class="input form-control" name="specialty">
+                                    </div>
+                                    <div class="group col-sm-4">
+                                        <label for="pass" class="label">PMDC ID</label>
+                                        <input type="text" class="input form-control" name="pmdc_id">
+                                    </div>
+                                    <div class="group col-sm-4">
+                                        <label for="pass" class="label">DEA #</label>
+                                        <input type="text" class="input form-control" name="dea">
+                                    </div>
+                                    <div class="group col-sm-6">
+                                        <label for="pass" class="label">Password</label>
+                                        <input type="password" class="input form-control" data-type="password">
+                                    </div>
+                                    <div class="group col-sm-6">
+                                        <label for="pass" class="label">Conform Password</label>
+                                        <input type="password" class="input form-control" data-type="password">
+                                    </div>
+                                </div>
+                                <!-- <div class="group">
+                                    <div class="form-wrapper">
+                                        <label for="pass" class="label">Date of Birth</label>
+                                        <span class="lnr lnr-calendar-full"></span>
+                                        <input type="text" class="input datepicker-here" data-language='en' data-date-format="dd M yyyy" id="dp1">
+                                    </div>
+                                </div> -->
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                </div>
+                                <div class="group">
+                                    <button class="button btn-danger" value="Sign In">Register</button>
+                                </div>
+                                
+                                </form>
+                            </div>
+                            <div class="sign-up-htm">
+                                <div class="row">
+                                    <div class="group col-sm-12">
+                                        <label for="user" class="label">Pharmacy Name</label>
+                                        <input type="text" name="name" class="input form-control">
+                                    </div>
+                                    <div class="group col-sm-12">
+                                        <label for="user" class="label">Address</label>
+                                        <input type="text" name="address" class="input form-control">
+                                    </div>
+                                    <div class="group col-sm-12">
+                                        <label for="user" class="label">Email</label>
+                                        <input type="email" name="email" class="input form-control">
+                                    </div>
+                                    <div class="group col-sm-12">
+                                        <label for="user" class="label">Telephone #</label>
+                                        <input type="number" name="phone" class="input form-control">
+                                    </div>
+                                </div>
+
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                </div>
+
+                                <div class="group">
+                                    <button class="button btn-danger">Register</button>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+
+
+
+<div class="hero" style="background-image: url('{{ asset('frontend_assets/img/bg-1.jpg') }}')">
+    <div class="container">
+        <div class="row hero__content pt-5 pb-5">
+            <div class="col-md-2 col-sm-12 col-12"></div>
+            <div class="col-md-8 col-sm-12 col-12">
+                <div class="tabs">
+                    <div class="tab-2">
+                        <label for="tab2-1">One</label>
+                        <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+                        <div>
+                            <div class="sign-in-htm">
+                                <form method="POST" action="{{ route('register') }}">
+                                <div class="row">
+                                    <div class="form-group col-sm-12">
+                                        <label for="user" class="form-label">Physician Name</label>
+                                        <input type="text" name="name" class="input form-control">
+                                        
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <label for="user" class="form-label">Clinic Address</label>
+                                        <input type="text" name="address" class="input form-control">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="user" class="form-label">Email</label>
+                                        <input type="email" name="email" class="input form-control">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="user" class="form-label">Telephone #</label>
+                                        <input type="number" name="phone" class="input form-control">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="pass" class="form-label">Specialty</label>
+                                        <input type="text" class="input form-control" name="specialty">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="pass" class="form-label">PMDC ID</label>
+                                        <input type="text" class="input form-control" name="pmdc_id">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="pass" class="form-label">DEA #</label>
+                                        <input type="text" class="input form-control" name="dea">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="pass" class="form-label">Password</label>
+                                        <input type="password" class="input form-control" data-type="password">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="pass" class="form-label">Conform Password</label>
+                                        <input type="password" class="input form-control" data-type="password">
+                                    </div>
+                                </div>
+                                <!-- <div class="group">
+                                    <div class="form-wrapper">
+                                        <label for="pass" class="label">Date of Birth</label>
+                                        <span class="lnr lnr-calendar-full"></span>
+                                        <input type="text" class="input datepicker-here" data-language='en' data-date-format="dd M yyyy" id="dp1">
+                                    </div>
+                                </div> -->
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                </div>
+                                <div class="group">
+                                    <button class="button btn-danger" value="Sign In">Register</button>
+                                </div>
+                                
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-2">
+                        <label for="tab2-2">Two</label>
+                        <input id="tab2-2" name="tabs-two" type="radio" checked="checked">
+                        <div>
+                            <h4>Tab Two</h4>
+                            <p>Quisque sit amet turpis leo. Maecenas sed dolor mi. Pellentesque varius elit in neque ornare commodo ac non tellus. Mauris id iaculis quam. Donec eu felis quam. Morbi tristique lorem eget iaculis consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at tellus eget risus tempus ultrices. Nam condimentum nisi enim, scelerisque faucibus lectus sodales at.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@endsection

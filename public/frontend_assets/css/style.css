@@ -1,0 +1,325 @@
+html,
+body {
+  margin: 0;
+}
+
+.hero {
+  background-size: 150%;
+  background-repeat: no-repeat;
+  background-position: left;
+  -webkit-animation: slide 60s ease;
+  transform: translate3d(0,0,0);
+  /*height: 114vh;*/
+}
+
+@media only screen and (max-width: 600px) {
+  .hero {
+    background-size: cover;
+  }
+  .login-wrap{
+    min-height:160vh !important;
+  }
+}
+.hero-after{
+  background-image: linear-gradient(90deg, #e2362a69, #a91a12);
+  height: inherit;
+}
+.hero-after-home{
+  background-image: linear-gradient(90deg, #e2362a38, #a91a12b5);
+  height: inherit;
+}
+a:hover {
+    color: #fefefe;
+    text-decoration: underline;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 6px);
+}
+
+/*.hero:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, #e2362a57, #a91a12cf)
+}*/
+
+.hero__content {
+  z-index: 101;
+  position: relative;
+}
+
+@-webkit-keyframes slide {
+  0%   { background-position: left; }
+  50%   { background-position: right; }
+  100% { background-position: left; }
+}
+
+.hero h1 {
+  font-size: 2.46em;
+  font-weight: 100;
+  color: white;
+  margin: 0;
+}
+
+.slogan-text-ind {
+    font-size: 2.2rem;
+}
+.slogan-text{
+  font-size: 1.85rem;
+}
+
+.hero__content {
+    /*padding-top: 200px;*/
+    /*max-width: 50%;*/
+}
+
+.btn {
+  background: #a71a13;
+  color: white;
+  text-decoration: none;
+  padding: 10px 40px;
+  margin: 20px 0;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-wrap{
+    width:100%;
+    margin:auto;
+    /*max-width:525px;*/
+    min-height:100vh;
+    position:relative;
+    background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+    background-size: cover;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+    width:100%;
+    height:100%;
+    position:absolute;
+    padding:80px 40px 0px ;
+    background:rgba(255, 255, 255, 0.97)
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+    transform:rotateY(180deg);
+    backface-visibility:hidden;
+    transition:all .4s linear;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+    display:none;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+    text-transform:uppercase;
+}
+.login-html .tab{
+    font-size:19px;
+    /*margin-right:15px;*/
+    padding-bottom:10px;
+    /*margin:0 15px 10px 0;*/
+    display:inline-block;
+    border-bottom:2px solid transparent;
+    color: #cf3227ad;
+
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+    color:#ce3024;
+    border-color:#ce3024;
+    
+}
+
+.tab-top{
+    width: 45%;
+    text-align: center;
+}
+
+.login-form{
+    min-height:345px;
+    position:relative;
+    perspective:1000px;
+    transform-style:preserve-3d;
+}
+.login-form .group{
+    margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+    width:100%;
+    color:#5a5a5a;
+    display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+    border:none;
+    padding:11px 20px;
+    border-radius:25px;
+    background:rgba(236, 236, 236)
+}
+.login-form .group input[data-type="password"]{
+    text-security:circle;
+    -webkit-text-security:circle;
+}
+.login-form .group .label{
+    color:#aaa;
+    font-size:12px;
+}
+.login-form .group .button{
+    background:#ce3024;
+    color: #fff;
+}
+.login-form .group label .icon{
+    width:15px;
+    height:15px;
+    border-radius:2px;
+    position:relative;
+    display:inline-block;
+    background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+    content:'';
+    width:10px;
+    height:2px;
+    background:#fff;
+    position:absolute;
+    transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+    left:3px;
+    width:5px;
+    bottom:6px;
+    transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+    top:6px;
+    right:0;
+    transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+    color:#afafaf;
+}
+.login-form .group .check:checked + label .icon{
+    background:#ce3024;
+}
+.login-form .group .check:checked + label .icon:before{
+    transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+    transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+    transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+    transform:rotate(0);
+}
+
+.hr{
+    height:2px;
+    margin:60px 0 50px 0;
+    background:rgb(206, 48, 36)
+}
+.foot-lnk{
+    text-align:center;
+}
+.form-wrapper span.lnr-calendar-full {
+    position: absolute;
+    left: 16px;
+    font-size: 15px;
+    color: #666;
+    top: 43px; }
+
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form-back {
+    background: #fff;
+    padding: 3rem;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.input {
+    border-radius: 25px;
+    background: rgba(236, 236, 236);
+    border: none;
+    padding: 9px 20px;
+}
+.auth-heading{
+    text-align: center; 
+    color: #ce3024;
+    font-family: 'Open Sans',sans-serif;
+}
+.group .label {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+.group .button {
+    background: #ce3024;
+    color: #fff;
+    width: 100%
+}
+.logo{
+    max-width: 250px;
+}
