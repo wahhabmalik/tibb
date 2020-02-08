@@ -4,12 +4,12 @@ body {
 }
 
 .hero {
-  background-size: 150%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: left;
-  -webkit-animation: slide 60s ease;
-  transform: translate3d(0,0,0);
-  /*height: 114vh;*/
+  /*-webkit-animation: slide 60s ease;*/
+  /*transform: translate3d(0,0,0);*/
+  height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {
@@ -21,7 +21,7 @@ body {
   }
 }
 .hero-after{
-  background-image: linear-gradient(90deg, #e2362a69, #a91a12);
+  background-image: linear-gradient(165deg, #00000045, #0000008c);
   height: inherit;
 }
 .hero-after-home{
@@ -77,14 +77,14 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .btn {
-  background: #a71a13;
+  background: #a43641;
   color: white;
   text-decoration: none;
-  padding: 10px 40px;
+  padding: 10px 25px;
   margin: 20px 0;
   display: inline-block;
   border-radius: 3px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -295,7 +295,7 @@ input[type=number] {
 
 .form-back {
     background: #fff;
-    padding: 3rem;
+    padding: 2rem 3rem;
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .input {
@@ -305,8 +305,8 @@ input[type=number] {
     padding: 9px 20px;
 }
 .auth-heading{
-    text-align: center; 
-    color: #ce3024;
+    text-align: left; 
+    color: #868686;
     font-family: 'Open Sans',sans-serif;
 }
 .group .label {
@@ -318,7 +318,8 @@ input[type=number] {
 .group .button {
     background: #ce3024;
     color: #fff;
-    width: 100%
+    width: 100%;
+    cursor: pointer;
 }
 .logo{
     max-width: 250px;

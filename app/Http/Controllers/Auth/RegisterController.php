@@ -53,6 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'l_name' => ['required', 'string', 'max:255'],
+            // 'pmdc_id' => ['required', 'string', 'max:7'],
             'user_type' => ['required', 'string', 'in:physician,pharmacist,patient'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required', 'string'],
@@ -70,19 +71,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // dd($data['dob']);
-
-        if($data['user_type'] == 'patient'){
-            Patient::create([
-                'dob' => $data['dob'],
-                'emp_status' => $data['emp_status'],
-                'company_name' => $data['company_name'],
-                'company_web' => $data['company_web'],
-                'marital_status' => $data['marital_status'],
-                'family_size' => $data['family_size'],
-                'nic_no' => $data['nic_no'],
-            ]);
-        }
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'l_name' => $data['l_name'],
             'user_type' => $data['user_type'],
@@ -95,7 +84,20 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        if($data['user_type'] == 'patient'){
+            Patient::create([
+                'user_id' => $user['id'],
+                'dob' => $data['dob'],
+                'emp_status' => $data['emp_status'],
+                'company_name' => $data['company_name'],
+                'company_web' => $data['company_web'],
+                'marital_status' => $data['marital_status'],
+                'family_size' => $data['family_size'],
+                'nic_no' => $data['nic_no'],
+            ]);
+        }
 
+        return $user;
 
     }
 }

@@ -95,12 +95,13 @@ a{color:inherit;text-decoration:none}
 
 @section('content')
 
-<div class="hero" style="background-image: url('{{ asset('frontend_assets/img/bg-1.jpg') }}')">
+<div class="hero" style="background-image: url('{{ asset('frontend_assets/img/bg-1.jpg') }}'); height: 114vh;">
     <div class="hero-after" >
         <div class="container">
             <div class="hero__content">
                 <div class="row  pt-5 pb-5 flex-column-reverse flex-md-row">
                     
+                    <div class="col-md-2 col-sm-12 col-12"></div>
                     <div class="col-md-8 col-sm-12 col-12">
                         <div class="login-wrap">
                             <div class="login-html">
@@ -110,9 +111,10 @@ a{color:inherit;text-decoration:none}
                                     <div class="sign-in-htm">
                                         <form method="POST" action="{{ route('register') }}">
                                         @csrf
+                                        <input type="hidden" name="user_type" value="physician">
                                         <div class="row">
-                                            <div class="group col-sm-12">
-                                                <label for="name" class="label">Physician Name</label>
+                                            <div class="group col-sm-6">
+                                                <label for="name" class="label">First Name</label>
                                                 <input 
                                                 type="text" 
                                                 name="name" 
@@ -122,6 +124,23 @@ a{color:inherit;text-decoration:none}
                                                 required >
 
                                                 @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                            </div>
+                                            <div class="group col-sm-6">
+                                                <label for="l_name" class="label">Last Name</label>
+                                                <input 
+                                                type="text" 
+                                                name="l_name" 
+                                                id="l_name" 
+                                                value="{{ old('l_name') }}" 
+                                                class="input form-control @error('l_name') is-invalid @enderror" 
+                                                required >
+
+                                                @error('l_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -193,13 +212,13 @@ a{color:inherit;text-decoration:none}
                                                 @enderror
                                             </div>
                                             <div class="group col-sm-4">
-                                                <label for="pmdc_id" class="label">PMDC ID</label>
+                                                <label for="pmdc_id" class="label">PMC ID</label>
                                                 <input 
                                                 type="text" 
                                                 name="pmdc_id"
                                                 id="pmdc_id"
                                                 class="input form-control @error('pmdc_id') is-invalid @enderror" 
-                                                required >
+                                                >
 
                                                 @error('pmdc_id')
                                                     <span class="invalid-feedback" role="alert">
@@ -215,7 +234,7 @@ a{color:inherit;text-decoration:none}
                                                 name="dea"
                                                 id="dea"
                                                 class="input form-control @error('dea') is-invalid @enderror"
-                                                required >
+                                                >
 
                                                 @error('dea')
                                                     <span class="invalid-feedback" role="alert">
@@ -261,10 +280,10 @@ a{color:inherit;text-decoration:none}
                                                 <input type="text" class="input datepicker-here" data-language='en' data-date-format="dd M yyyy" id="dp1">
                                             </div>
                                         </div> --}}
-                                        <div class="group">
+                                        {{-- <div class="group">
                                             <input id="check" type="checkbox" class="check" checked>
                                             <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                                        </div>
+                                        </div> --}}
                                         <div class="group">
                                             <button class="button btn-danger" value="Sign In">Register</button>
                                         </div>
@@ -274,9 +293,10 @@ a{color:inherit;text-decoration:none}
                                     <div class="sign-up-htm">
                                         <form method="POST" action="{{ route('register') }}">
                                         @csrf
+                                        <input type="hidden" name="user_type" value="pharmacist">
                                         <div class="row">
-                                            <div class="group col-sm-12">
-                                                <label for="user" class="label">Pharmacy Name</label>
+                                            <div class="group col-sm-6">
+                                                <label for="user" class="label">First Name</label>
                                                 <input 
                                                 type="text" 
                                                 name="name" 
@@ -286,6 +306,22 @@ a{color:inherit;text-decoration:none}
                                                 required >
 
                                                 @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="group col-sm-6">
+                                                <label for="user" class="label">Last Name</label>
+                                                <input 
+                                                type="text" 
+                                                name="l_name" 
+                                                id="l_name" 
+                                                value="{{ old('l_name') }}" 
+                                                class="input form-control @error('l_name') is-invalid @enderror" 
+                                                required >
+
+                                                @error('l_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -377,7 +413,7 @@ a{color:inherit;text-decoration:none}
                                         <br>
                                         {{-- <div class="hr"></div> --}}
                                         <div class="foot-lnk">
-                                            <label for="tab-1">Already Member?</a>
+                                            {{-- <label for="tab-1">Already Member?</a> --}}
                                         </div>
                                         </form>
                                     </div>
@@ -386,7 +422,7 @@ a{color:inherit;text-decoration:none}
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12 col-12">
+                    {{-- <div class="col-md-4 col-sm-12 col-12">
                         <div class="mt-5 pd-5">
                             <a href="{{ route('/') }}">
                             <img src="{{ asset('frontend_assets/img/tibb-logo.png') }}" class="img img-fluid mt-5 align-middle">
@@ -394,7 +430,7 @@ a{color:inherit;text-decoration:none}
                             <br>
                             <h3 class="text-white slogan-text">Health care powered by AI</h3>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

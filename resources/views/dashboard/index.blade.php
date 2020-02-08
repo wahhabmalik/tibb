@@ -27,37 +27,37 @@
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-success pull-right">Monthly</span>
-                    <h5>Income</h5>
+                    <span class="label label-success pull-right">Today</span>
+                    <h5>Patient Treated</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">40 886,200</h1>
+                    <h1 class="no-margins">40</h1>
                     <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                    <small>Total income</small>
+                    <small>Total Patient Treated</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-info pull-right">Annual</span>
-                    <h5>Orders</h5>
+                    <span class="label label-info pull-right">Today</span>
+                    <h5>Patient Awaited</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
+                    <h1 class="no-margins">27</h1>
                     <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                    <small>New orders</small>
+                    <small>Total Patient Awaited</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-primary pull-right">Today</span>
-                    <h5>visits</h5>
+                    <span class="label label-primary pull-right">Monthly</span>
+                    <h5>Scheduled</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">106,120</h1>
+                    <h1 class="no-margins">10</h1>
                     <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
                     <small>New visits</small>
                 </div>
@@ -77,67 +77,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5><button class="btn btn-sm btn-success" onclick="openPatientRegistration()">Add Patient</button></h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover dataTables-example" >
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>Appointment Time</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($patients as $patient)
-                                    <tr class="gradeX">
-                                        <td>{{ $patient->dob }}</td>
-                                        <td><i class="fa fa-clock-o"></i> 01:30pm
-                                        </td>
-                                        <td>{{ \Carbon::parse($patient->dob)->age }}</td>
-                                        <td>4</td>
-                                        <td><span class="label label-warning">Canceled</span></td>
-                                        <td>
-                                            <a title="Edit record" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                        </td>
-                                    </tr>     
-                                @endforeach                           
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
 
 
     
@@ -260,38 +199,63 @@
                                 <small class="text-muted">Today 1:00 pm - 08.06.2014</small>
                             </div>
                         </div>
-                        <div class="feed-element">
-                            <div>
-                                <small class="pull-right">5m ago</small>
-                                <strong>Monica Jackson</strong>
-                                <div>The generated Lorem Ipsum is therefore </div>
-                                <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                            </div>
-                        </div>
-                        <div class="feed-element">
-                            <div>
-                                <small class="pull-right">5m ago</small>
-                                <strong>Anna Legend</strong>
-                                <div>All the Lorem Ipsum generators on the Internet tend to repeat </div>
-                                <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                            </div>
-                        </div>
-                        <div class="feed-element">
-                            <div>
-                                <small class="pull-right">5m ago</small>
-                                <strong>Damian Nowak</strong>
-                                <div>The standard chunk of Lorem Ipsum used </div>
-                                <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                            </div>
-                        </div>
-                        <div class="feed-element">
-                            <div>
-                                <small class="pull-right">5m ago</small>
-                                <strong>Gary Smith</strong>
-                                <div>200 Latin words, combined with a handful</div>
-                                <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
-                            </div>
-                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><button class="btn btn-sm btn-success" onclick="openPatientRegistration()">Add Patient</button></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" >
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Appointment Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($patients as $key => $patient)
+                                    <tr class="gradeX">
+                                        <td>{{ $key++ }}</td>
+                                        <td>{{ $patient->user->name . ' ' . $patient->user->l_name  }}</td>
+                                        <td>{{ \Carbon::parse($patient->dob)->age }}</td>
+                                        <td><i class="fa fa-clock-o"></i> 01:30pm
+                                        </td>
+                                        <td><span class="label label-custom">Awaited</span></td>
+                                        <td>
+                                            <a title="Edit record" href="#" class="btn btn-custom btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('rx_order', $patient) }}" class="btn btn-primary btn-sm">Treat Patient</a>
+                                            <button  class="btn btn-warning btn-sm" onclick="openVitals()">Add Vitals</button>
+                                        </td>
+                                    </tr>     
+                                @endforeach                           
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -300,9 +264,205 @@
 </div>
 
 
+{{-- Vitals Modal --}}
+<div class="modal inmodal" id="vitalsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <i class="fa fa-stethoscope modal-icon"></i>
+                <h4 class="modal-title">Add Vitals</h4>
+                <small class="font-bold">Add Vitals details here</small>
+            </div>
+            <form id="update_form" action="" method="POST">
+            <div class="modal-body">
+                 @csrf
+                <input type="hidden" name="user_type" value="patient">
+                <div class="row">
+                    
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Blood Pressure</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Temprature</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Fever</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Height</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Weight</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Skin Color</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Eye Condition</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Pulse</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="group col-sm-12">
+                        <label for="name" class="label mt-2">Oxygen Sat Rate</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value="{{ old('name') }}" 
+                        class="input form-control @error('name') is-invalid @enderror" 
+                        required >
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+
+                    
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- Vitals Modal --}}
+
+
+
 {{-- Patient Modal --}}
 
-<div class="modal inmodal" id="statusModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal inmodal" id="patientModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content animated bounceInRight">
             <div class="modal-header">
@@ -649,9 +809,14 @@
 </script>
 
 <script type="text/javascript">
+function openVitals(){
+
+    $('#vitalsModal').modal();
+    $('#update_form').attr('action', 'vitals');
+}
 
 function openPatientRegistration(){
-    $('#statusModal').modal();
+    $('#patientModal').modal();
     $('#update_form').attr('action', 'manual-patient-registration');
     // $('#update_form').attr('method', 'post');
 }

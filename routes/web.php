@@ -10,6 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+/*
+|--------------------------------------------------------------------------
+| Clear Cache
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('/clear', function(){
+  Artisan::call('cache:clear');
+  // Artisan::call('route:cache');
+  Artisan::call('view:clear');
+  Artisan::call('config:cache');
+  return "Done! Go Back and Refresh Page Please";
+})->name('clear');
+
+
 Auth::routes();
 
 Route::get('/', function () {
@@ -52,6 +69,17 @@ Route::group([
 	|-----------------------------------
 	*/
 	Route::resource('pharmacist', 'PharmacistController');
+
+
+	/*
+	|-----------------------------------
+	|Pharmacist Routes 
+	|-----------------------------------
+	*/
+
+	Route::get('/rx-order/{patient}', 'RxOrderController@create')->name('rx_order');
+	Route::post('/import_csv/', 'RxOrderController@import')->name('import_csv');
+	Route::resource('rx_order', 'RxOrderController');
 });
 
 
@@ -67,5 +95,13 @@ Route::group([
 Route::get('/register-patient', function () {
         return view('auth.register-patient');
     })->name('register-patient');
+
+Route::get('/register-physician', function () {
+        return view('auth.register-physician');
+    })->name('register-physician');
+
+Route::get('/register-pharmacist', function () {
+        return view('auth.register-pharmacist');
+    })->name('register-pharmacist');
 
 

@@ -15,6 +15,18 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+
+        // $this->middleware(function ($request, $next) {
+        //     $this->loggedInUser = auth()->user();
+        //     if($this->loggedInUser->user_type == 'admin'){
+        //         return $next($request);
+        //     }else {
+        //         return redirect()->route('/');
+        //     }
+            
+        // }, ['except' => ['']]);
+
     }
 
     /**

@@ -38,6 +38,12 @@ h5 {
   margin-top: 5px;
   font-weight: 600;
 }
+.vitals {
+    display: inline-flex;
+}
+.vital-status{
+  margin-left:10px;
+}
 .nav > li > a {
   color: #ce3024;
   font-weight: 600;
@@ -1091,6 +1097,11 @@ button.dim:active:before {
   background-color: #ce3024;
   color: #FFFFFF;
 }
+.label-custom,
+.badge-custom{
+  background-color: #279e88;
+  color: #FFFFFF;
+} 
 .label-success,
 .badge-success {
   background-color: #1c84c6;
@@ -3764,9 +3775,10 @@ body.body-small .footer.fixed {
   padding-bottom: 0;
 }
 .nav-tabs > li > a {
+  text-align: center;
   color: #A7B1C2;
   font-weight: 600;
-  padding: 10px 20px 10px 25px;
+  padding: 10px 10px 10px 10px;
 }
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
@@ -8560,3 +8572,12 @@ img.img.img-responsive.img-logo {
     height: 70px;
     margin: auto;
 }
+
+@media (min-width: 768px){
+  .dl-horizontal dt {
+      width: 150px;
+  }
+  .dl-horizontal dd {
+    margin-left: 160px;
+  }
+} 
